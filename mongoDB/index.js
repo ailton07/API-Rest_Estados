@@ -1,14 +1,19 @@
 var wagner = require('wagner-core');
 var express = require('express');
-var pais = require('./estados-cidades');
 
+require('./models')(wagner);
 
-//console.log(pais.estados);
-//pais.estados.forEach(function(estado){ console.log(estado.sigla);});
+var pais = wagner.invoke(function(paisModel){
+  return paisModel;
+});
 
 var app = express();
-
 app.use('/api/v1', require('./api')(wagner, pais));
 
 app.listen(3000);
 console.log('Listening on port 3000!');
+
+
+// wagner.invoke(function(db){
+//   db.connection.close()
+// });
