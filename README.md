@@ -5,6 +5,8 @@ estados-cidades.json proveniente de : https://gist.github.com/letanure/3012978
 
 Uso durante desenvolvimento:
 
+$ mongod --dbpath $PATH
+
 FIX: $ npm run watch
 
 $ node index.js
