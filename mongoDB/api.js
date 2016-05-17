@@ -9,6 +9,12 @@ var wagner = require('wagner-core');
 module.exports = function(wagner, pais) {
 
   var api = express.Router();
+  // http://enable-cors.org/server_expressjs.html
+  api.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
   api.use(bodyparser.json());
 
   // CRUD
